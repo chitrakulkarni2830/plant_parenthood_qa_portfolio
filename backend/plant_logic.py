@@ -22,8 +22,9 @@ sunlight_requirements = [
     "Direct Sun"
 ]
 
-for plant in plant_names:
-    print(plant)
+for i in range(len(plant_names)):
+    current_plant = plant_names[i]
+    light = sunlight_requirements[i]
 
 
 

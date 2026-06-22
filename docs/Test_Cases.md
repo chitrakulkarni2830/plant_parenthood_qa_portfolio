@@ -64,7 +64,7 @@ System displays "A shady corner is fine."
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 
@@ -95,7 +95,7 @@ Only generic recommendations are displayed.
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 
@@ -130,6 +130,9 @@ FAIL
 PP-BUG-004
 
 ---
+
+## TC-005
+
 ### Module:
 Plant Care Recommendation
 
@@ -143,7 +146,7 @@ Recommendations are generated without runtime errors.
 Application throws NameError because current_plant is undefined.
 
 ### Status:
-FAIL
+PASSED 
 
 ### Linked Defect:
 PP-BUG-005

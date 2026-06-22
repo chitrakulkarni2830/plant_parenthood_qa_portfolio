@@ -74,7 +74,10 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution:
+Replaced generic placement advice with sunlight-specific care guidance.
 
 ---
 
@@ -102,7 +105,10 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution:
+Added plant name to recommendation output using index-based iteration.
 
 ---
 
@@ -129,10 +135,15 @@ High
 Medium
 
 ### Status
+OPEN
 
 ### Target Fix: Objects Phase
 
 ---
+##  PP-BUG-005
+
+### Linked Test Case:
+TC-005
 
 ### Type:
 Logic Defect
@@ -147,4 +158,7 @@ High
 High
 
 ### Status:
-OPEN
+CLOSED
+
+### Resolution:
+Added index-based iteration to correctly access plant name and sunlight requirement simultaneously.
