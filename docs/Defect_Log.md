@@ -134,17 +134,17 @@ Medium
 
 ---
 
-Type:
+### Type:
 Logic Defect
 
-Summary:
+### Summary:
 current_plant variable referenced before definition.
 
-Severity:
+### Severity:
 High
 
-Priority:
+### Priority:
 High
 
-Status:
+### Status:
 OPEN
