@@ -24,3 +24,14 @@ sunlight_requirements = [
 
 for plant in plant_names:
     print(plant)
+
+
+
+if light == "Direct Sun":
+    print(current_plant + ": Requires full direct sunlight.")
+
+elif light == "Indirect Light":
+    print(current_plant + ": Thrives in bright indirect light.")
+
+else:
+    print(current_plant + ": Tolerates low-light conditions.")
