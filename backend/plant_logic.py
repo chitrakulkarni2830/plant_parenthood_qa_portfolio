@@ -21,3 +21,6 @@ sunlight_requirements = [
     "Direct Sun",
     "Direct Sun"
 ]
+
+for plant in plant_names:
+    print(plant)
