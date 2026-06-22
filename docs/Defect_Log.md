@@ -213,3 +213,99 @@ CLOSED
 ### Resolution:
 
 Moved conditional recommendation logic inside the loop so that every plant record is processed correctly.
+
+--------------------------
+
+## FP-BUG-001
+
+### Linked Test Case
+
+FTC-001
+
+### Type
+
+Parity Defect
+
+### Summary
+
+Frontend recommendation messages do not match backend recommendation messages.
+
+### Description
+
+The frontend implementation uses older recommendation wording while the backend implementation has already been updated with more accurate plant care guidance.
+
+### Steps To Reproduce
+
+1. Execute backend logic.
+2. Execute frontend logic.
+3. Compare recommendation outputs.
+
+### Expected Result
+
+Frontend and backend should produce identical recommendation messages.
+
+### Actual Result
+
+Frontend and backend produce different recommendation messages.
+
+### Severity
+
+Medium
+
+### Priority
+
+High
+
+### Status
+
+OPEN
+
+---
+
+## FP-BUG-002
+
+### Linked Test Case
+
+FTC-004
+
+### Type
+
+Design Defect / Data Integrity Risk
+
+### Summary
+
+Parallel arrays may become unsynchronized and create incorrect plant-care relationships.
+
+### Description
+
+Frontend currently stores plant data in separate arrays. Future additions or modifications may cause index mismatches between datasets.
+
+### Steps To Reproduce
+
+1. Add a new plant to plantNames.
+2. Do not add a corresponding sunlight requirement.
+3. Execute recommendation logic.
+
+### Expected Result
+
+Every plant should always have matching sunlight data.
+
+### Actual Result
+
+Dataset synchronization depends entirely on matching indexes.
+
+### Severity
+
+Medium
+
+### Priority
+
+Medium
+
+### Status
+
+OPEN
+
+### Target Fix
+
+Objects Phase
