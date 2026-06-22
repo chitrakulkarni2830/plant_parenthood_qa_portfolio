@@ -74,7 +74,7 @@ Verify that care recommendations identify the associated plant.
 The output should include the plant name and recommendation.
 
 Example:
-Monstera → Bright indirect light recommended.
+Monstera: Thrives in bright indirect light.
 
 ### Actual Result
 
@@ -130,7 +130,7 @@ Verify that recommendation logic executes successfully.
 Recommendations are generated without runtime errors.
 
 ### Actual Result:
-Application throws NameError because current_plant is undefined.
+Recommendations are generated successfully without runtime errors.
 
 ### Status:
 PASS
