@@ -258,7 +258,11 @@ High
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution
+
+Updated frontend recommendation messages to match backend recommendation messages and maintain feature parity.
 
 ---
 

@@ -208,11 +208,11 @@ Frontend and backend should generate identical recommendation messages for the s
 
 ### Actual Result
 
-Frontend uses older recommendation messages while backend uses updated recommendation messages.
+Frontend and backend generate identical recommendation messages.
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 
