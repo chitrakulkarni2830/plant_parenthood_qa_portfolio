@@ -10,7 +10,7 @@ plant_categories = [
     "Indoor Plants",
     "Succulents",
     "Indoor Plants",
-    "Vegetables",
+    "Fruits",
     "Flowering Plants"
 ]
 

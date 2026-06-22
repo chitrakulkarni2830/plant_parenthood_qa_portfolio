@@ -42,4 +42,8 @@ Low
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution
+
+Updated Tomato category from Vegetables to Fruits.

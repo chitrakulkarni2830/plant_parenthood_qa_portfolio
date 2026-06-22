@@ -32,3 +32,11 @@ FAIL
 ### Linked Defect
 
 PP-BUG-001
+
+### Actual Result
+
+Tomato belongs to Fruits category.
+
+### Status
+
+PASS
