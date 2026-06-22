@@ -140,6 +140,7 @@ OPEN
 ### Target Fix: Objects Phase
 
 ---
+
 ##  PP-BUG-005
 
 ### Linked Test Case:
@@ -162,3 +163,49 @@ CLOSED
 
 ### Resolution:
 Added index-based iteration to correctly access plant name and sunlight requirement simultaneously.
+
+---
+
+## PP-BUG-006
+
+### Linked Test Case
+
+TC-006
+
+### Type
+
+Logic Defect
+
+### Summary
+
+Conditional recommendation logic executes outside the loop due to incorrect indentation.
+
+### Description
+
+The recommendation generation logic is placed outside the iteration block. As a result, the loop finishes execution first and only the final plant record is evaluated by the conditional statements.
+
+### Steps To Reproduce
+
+1. Execute plant_logic.py.
+2. Observe the generated output.
+3. Compare the number of recommendations against the number of plants in the dataset.
+
+### Expected Result
+
+A recommendation should be generated for every plant in the dataset.
+
+### Actual Result
+
+Only one recommendation is generated for the final plant in the dataset.
+
+### Severity
+
+High
+
+### Priority
+
+High
+
+### Status
+
+OPEN

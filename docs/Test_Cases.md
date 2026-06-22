@@ -23,24 +23,11 @@ Tomato should belong to Fruits category.
 
 ### Actual Result
 
-Tomato belongs to Vegetables category.
-
-### Status
-
-FAIL
-
-### Linked Defect
-
-PP-BUG-001
-
-### Actual Result
-
 Tomato belongs to Fruits category.
 
 ### Status
 
 PASS
-
 
 ---
 
@@ -60,7 +47,7 @@ Plants requiring "Indirect Light" should receive guidance specific to indirect l
 
 ### Actual Result
 
-System displays "A shady corner is fine."
+Plants requiring indirect light receive specific indirect-light recommendations.
 
 ### Status
 
@@ -91,7 +78,7 @@ Monstera → Bright indirect light recommended.
 
 ### Actual Result
 
-Only generic recommendations are displayed.
+Each recommendation now displays the associated plant name.
 
 ### Status
 
@@ -146,7 +133,49 @@ Recommendations are generated without runtime errors.
 Application throws NameError because current_plant is undefined.
 
 ### Status:
-PASSED 
+PASS
 
 ### Linked Defect:
 PP-BUG-005
+
+---
+
+## TC-006
+
+### Module
+
+Plant Care Recommendations
+
+### Test Scenario
+
+Verify that care recommendations are generated for every plant in the dataset.
+
+### Preconditions
+
+Plant dataset and sunlight requirements dataset contain matching records.
+
+### Test Steps
+
+1. Execute plant_logic.py.
+2. Observe the generated recommendations.
+3. Count the total recommendations displayed.
+
+### Expected Result
+
+A recommendation should be generated for every plant in the dataset.
+
+Current dataset contains 5 plants.
+
+Expected output count = 5 recommendations.
+
+### Actual Result
+
+Only 1 recommendation is generated because the conditional logic executes outside the loop and processes only the final plant record.
+
+### Status
+
+FAIL
+
+### Linked Defect
+
+PP-BUG-006
