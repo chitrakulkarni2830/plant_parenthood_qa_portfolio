@@ -128,3 +128,22 @@ FAIL
 ### Linked Defect
 
 PP-BUG-004
+
+---
+### Module:
+Plant Care Recommendation
+
+### Scenario:
+Verify that recommendation logic executes successfully.
+
+### Expected Result:
+Recommendations are generated without runtime errors.
+
+### Actual Result:
+Application throws NameError because current_plant is undefined.
+
+### Status:
+FAIL
+
+### Linked Defect:
+PP-BUG-005

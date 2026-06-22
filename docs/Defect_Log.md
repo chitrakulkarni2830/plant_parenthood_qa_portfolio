@@ -131,3 +131,20 @@ Medium
 ### Status
 
 ### Target Fix: Objects Phase
+
+---
+
+Type:
+Logic Defect
+
+Summary:
+current_plant variable referenced before definition.
+
+Severity:
+High
+
+Priority:
+High
+
+Status:
+OPEN
