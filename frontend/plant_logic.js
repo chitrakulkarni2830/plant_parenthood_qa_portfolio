@@ -76,4 +76,26 @@ function generateCareRecommendations() {
     } 
 
 }
-generateCareRecommendations()
+
+const userInput = "rose";
+
+function searchPlant() {
+    for (const plant of plantDatabase) {
+        if (plant.name.toLowerCase() === userInput.toLowerCase()) {
+            return plant;
+        }
+    }
+
+    return null;
+}
+
+const result = searchPlant();
+
+if (result) {
+    console.log("🎉🌱 YAY! Plant Found! 🌱🎉");
+    console.log(`🌸 Name: ${result.name}`);
+    console.log(`🪴 Category: ${result.category}`);
+    console.log(`☀️ Sunlight: ${result.sunlight}`);
+} else {
+    console.log("🥺🌱 Plant Not Found");
+}

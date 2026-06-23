@@ -504,7 +504,7 @@ Application should identify Rose and display plant details regardless of letter 
 
 ### Actual Result
 
-Application identifies Rose and display plant details regardless of letter casing.
+Application identifies Rose and displays plant details regardless of letter casing.
 
 ### Status
 
