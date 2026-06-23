@@ -420,3 +420,15 @@ CLOSED
 ### Resolution
 
 Updated plant search logic to perform case-insensitive comparison using lower() on both user input and plant name values.
+
+---
+
+### FP-BUG-004
+
+### Status
+
+CLOSED
+
+### Resolution
+
+Updated frontend search comparison to perform case-insensitive matching using toLowerCase() on both plant name and user input.
