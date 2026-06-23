@@ -358,3 +358,49 @@ Five recommendations are generated successfully.
 ### Status
 
 PASS
+
+---
+
+### FP-BUG-003
+
+### Linked Test Case
+
+FTC-005
+
+### Type
+
+Parity Defect
+
+### Summary
+
+Frontend and backend plant datasets are out of sync.
+
+### Description
+
+Five new plants (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) were added to the frontend plantDatabase but were not added to the backend plant_database. This causes frontend and backend datasets to diverge and breaks feature parity.
+
+### Steps To Reproduce
+
+1. Add five new plants to frontend/plant_logic.js.
+2. Do not add the same plants to backend/plant_logic.py.
+3. Execute both applications.
+
+### Expected Result
+
+Frontend and backend should contain identical plant datasets.
+
+### Actual Result
+
+Frontend contains 10 plants while backend contains only 5 plants.
+
+### Severity
+
+Medium
+
+### Priority
+
+Medium
+
+### Status
+
+OPEN
