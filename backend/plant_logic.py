@@ -66,13 +66,15 @@ def generate_care_recommendations():
             print(current_plant + ": Tolerates low-light conditions.")
 
 
-user_input = "Rose"
+user_input = "ROSE"
+
 def search_plant():
     for plant in plant_database:
-        if plant["name"] == user_input:
+        if plant["name"].lower() == user_input.lower():
             return plant
-        
-    return None   
+
+    return None
+
 
 result = search_plant()
 

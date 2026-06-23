@@ -504,10 +504,8 @@ Application should identify Rose and display plant details regardless of letter 
 
 ### Actual Result
 
-Application displays:
-
-🥺🌱 Plant Not Found
+Application identifies Rose and display plant details regardless of letter casing.
 
 ### Status
 
-FAIL
+PASS

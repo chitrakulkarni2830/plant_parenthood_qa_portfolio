@@ -415,4 +415,8 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution
+
+Updated plant search logic to perform case-insensitive comparison using lower() on both user input and plant name values.
