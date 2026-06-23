@@ -106,11 +106,11 @@ Each plant should always have a matching category and sunlight requirement.
 
 ### Actual Result
 
-Parallel arrays create a risk of index mismatch and data corruption.
+Plant data is now stored using a single list of dictionaries. Each plant record contains its own name, category, and sunlight requirement, eliminating index synchronization risks.
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 
@@ -316,11 +316,11 @@ Every plant should have a matching sunlight requirement.
 
 ### Actual Result
 
-Parallel arrays create a future risk of dataset mismatch.
+Plant data is stored using a single array of objects. Each plant record contains its own name, category, and sunlight requirement, eliminating index synchronization risks.
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 

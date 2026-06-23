@@ -135,9 +135,12 @@ High
 Medium
 
 ### Status
-OPEN
 
-### Target Fix: Objects Phase
+CLOSED
+
+### Resolution
+
+Replaced parallel arrays with a single list of dictionaries (plant_database). Each plant now stores its own name, category, and sunlight data within the same record, eliminating the risk of index mismatches and corrupted plant-care relationships.
 
 ---
 
@@ -308,8 +311,8 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
 
-### Target Fix
+### Resolution
 
-Objects Phase
+Replaced parallel arrays with a single array of objects (plantDatabase). Each plant now stores its own name, category, and sunlight requirement within the same record, eliminating the risk of index mismatches and incorrect plant-care relationships.
