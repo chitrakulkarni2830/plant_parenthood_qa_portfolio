@@ -361,46 +361,40 @@ PASS
 
 ---
 
-### FP-BUG-003
+### FTC-005
 
-### Linked Test Case
+### Module
 
-FTC-005
+Frontend/Backend Parity
 
-### Type
+### Test Scenario
 
-Parity Defect
+Verify frontend and backend contain identical plant datasets.
 
-### Summary
+### Preconditions
 
-Frontend and backend plant datasets are out of sync.
+Frontend and backend applications are available.
 
-### Description
+### Test Steps
 
-Five new plants (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) were added to the frontend plantDatabase but were not added to the backend plant_database. This causes frontend and backend datasets to diverge and breaks feature parity.
-
-### Steps To Reproduce
-
-1. Add five new plants to frontend/plant_logic.js.
-2. Do not add the same plants to backend/plant_logic.py.
-3. Execute both applications.
+1. Review frontend plantDatabase.
+2. Review backend plant_database.
+3. Compare total plant records.
+4. Compare plant names across both datasets.
 
 ### Expected Result
 
-Frontend and backend should contain identical plant datasets.
+Frontend and backend should contain identical plant records.
 
 ### Actual Result
 
-Frontend contains 10 plants while backend contains only 5 plants.
-
-### Severity
-
-Medium
-
-### Priority
-
-Medium
+Frontend and backend both contain 10 identical plant records. Dataset parity has been successfully restored.
 
 ### Status
 
-OPEN
+PASS
+
+### Linked Defect
+
+FP-BUG-003
+

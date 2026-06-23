@@ -331,11 +331,11 @@ Parity Defect
 
 ### Summary
 
-Frontend and backend plant datasets are out of sync.
+Frontend and backend plant datasets were out of sync.
 
 ### Description
 
-Five new plants (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) were added to the frontend plantDatabase but were not added to the backend plant_database. This causes frontend and backend datasets to diverge and breaks feature parity.
+Five new plants (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) were added to the frontend plantDatabase but were not added to the backend plant_database. This caused frontend and backend datasets to diverge and broke feature parity.
 
 ### Steps To Reproduce
 
@@ -349,7 +349,7 @@ Frontend and backend should contain identical plant datasets.
 
 ### Actual Result
 
-Frontend contains 10 plants while backend contains only 5 plants.
+Frontend contained 10 plants while backend contained only 5 plants.
 
 ### Severity
 
@@ -361,4 +361,8 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution
+
+Added the missing plant records (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) to the backend plant_database, restoring frontend/backend dataset parity.
