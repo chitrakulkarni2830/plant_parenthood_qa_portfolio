@@ -1,34 +1,33 @@
-plant_names = [
-    "Monstera",
-    "Aloe Vera",
-    "Snake Plant",
-    "Tomato",
-    "Rose"
-]
+plant_database = [
 
-plant_categories = [
-    "Indoor Plants",
-    "Succulents",
-    "Indoor Plants",
-    "Fruits",
-    "Flowering Plants"
-]
+    {"name": "Monstera",
+     "category": "Indoor Plants",
+     "sunlight": "Indirect Light"},
 
-sunlight_requirements = [
-    "Indirect Light",
-    "Direct Sun",
-    "Low Light",
-    "Direct Sun",
-    "Direct Sun"
+     {"name": "Aloe Vera",
+      "category": "Succulents",
+      "sunlight": "Direct Sun"},
+
+      {"name": "Snake Plant",
+      "category": "Indoor Plants",
+      "sunlight": "Low Light"},
+
+      {"name": "Tomato",
+      "category": "Fruits",
+      "sunlight": "Direct Sun"},
+
+      {"name": "Rose",
+      "category": "Flowering Plants",
+      "sunlight": "Direct Sun"}
 ]
 
 
 def generate_care_recommendations():
     
-    for i in range(len(plant_names)):
-        current_plant = plant_names[i]
-        light = sunlight_requirements[i]
-        
+    for plant in plant_database:
+        current_plant = plant["name"]
+        light = plant["sunlight"]
+
         if light == "Direct Sun":
             print(current_plant + ": Requires full direct sunlight.")
         elif light == "Indirect Light":

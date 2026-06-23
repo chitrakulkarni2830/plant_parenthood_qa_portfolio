@@ -1,20 +1,41 @@
-const plantNames = ["Monstera", "Aloe Vera", "Snake Plant", "Tomato", "Rose"];
+const plantDatabase = [
+    {
+        name: "Monstera",
+        category: "Indoor Plants",
+        sunlight: "Indirect Light"
+    },
 
-const plantCategories = ["Indoor Plants", "Succulents", "Indoor Plants", "Fruits", "Flowering Plants"];
+    {
+        name: "Aloe Vera",
+        category: "Succulents",
+        sunlight: "Direct Sun"
+    },
 
-const sunlightRequirements = ["Indirect Light", "Direct Sun", "Low Light", "Direct Sun", "Direct Sun"];
+    {
+        name: "Snake Plant",
+        category: "Indoor Plants",
+        sunlight: "Low Light"
+    },
 
-for (const plant of plantNames) {
-    console.log(plant);
-}
+    {
+        name: "Tomato",
+        category: "Fruits",
+        sunlight: "Direct Sun"
+    },
 
+    {
+        name: "Rose",
+        category: "Flowering Plants",
+        sunlight: "Direct Sun"
+    }
+];
 
 function generateCareRecommendations() {
     
-    for (let i = 0; i < plantNames.length; i++) {
-        const currentPlant = plantNames[i];
-        const light = sunlightRequirements[i];
-    
+    for (const plant of plantDatabase) {
+        const currentPlant = plant.name;
+        const light = plant.sunlight;
+
         if (light === "Direct Sun") {
             console.log(currentPlant + ": Requires full direct sunlight.");
         } else if (light === "Indirect Light") {
@@ -23,6 +44,6 @@ function generateCareRecommendations() {
             console.log(currentPlant + ": Tolerates low-light conditions.");
         }
     } 
-}
 
+}
 generateCareRecommendations()
