@@ -398,3 +398,116 @@ PASS
 
 FP-BUG-003
 
+---
+
+### TC-006
+
+### Test Scenario
+
+Verify search functionality returns plant details when a valid plant name is entered.
+
+### Preconditions
+
+Plant database contains Rose.
+
+### Test Steps
+
+1. Set user_input = "Rose".
+2. Execute plant_logic.py.
+3. Observe search results.
+
+### Test Data
+
+Rose
+
+### Expected Result
+
+Application displays:
+
+🌸 Name: Rose
+
+🪴 Category: Flowering Plants
+
+☀️ Sunlight: Direct Sun
+
+### Actual Result
+
+Application displays correct plant details.
+
+### Status
+
+PASS
+
+---
+
+### TC-007
+
+### Test Scenario
+
+Verify application displays Plant Not Found when a non-existent plant name is entered.
+
+### Preconditions
+
+Plant database does not contain Dragon Fruit.
+
+### Test Steps
+
+1. Set user_input = "Dragon Fruit".
+2. Execute plant_logic.py.
+3. Observe search results.
+
+### Test Data
+
+Dragon Fruit
+
+### Expected Result
+
+Application displays:
+
+🥺🌱 Plant Not Found
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Plant Not Found
+
+### Status
+
+PASS
+
+---
+
+### TC-008
+
+### Test Scenario
+
+Verify search functionality handles lowercase input for an existing plant.
+
+### Preconditions
+
+Plant database contains Rose.
+
+### Test Steps
+
+1. Set user_input = "rose".
+2. Execute plant_logic.py.
+3. Observe search results.
+
+### Test Data
+
+rose
+
+### Expected Result
+
+Application should identify Rose and display plant details regardless of letter casing.
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Plant Not Found
+
+### Status
+
+FAIL

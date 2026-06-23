@@ -366,3 +366,53 @@ CLOSED
 ### Resolution
 
 Added the missing plant records (Money Plant, Tulsi, Mint, Jasmine, and Hibiscus) to the backend plant_database, restoring frontend/backend dataset parity.
+
+---
+
+### PP-BUG-005
+
+### Linked Test Case
+
+TC-008
+
+### Type
+
+Validation Defect
+
+### Summary
+
+Search functionality is case-sensitive and fails to identify valid plant names entered in lowercase.
+
+### Description
+
+The search feature performs an exact string comparison between user_input and plant["name"].
+
+When a user enters "rose" instead of "Rose", the application fails to locate the existing plant and incorrectly displays Plant Not Found.
+
+### Steps To Reproduce
+
+1. Set user_input = "rose".
+2. Execute plant_logic.py.
+3. Observe search results.
+
+### Expected Result
+
+Application should locate Rose and display plant details regardless of letter casing.
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Plant Not Found
+
+### Severity
+
+Low
+
+### Priority
+
+Medium
+
+### Status
+
+OPEN
