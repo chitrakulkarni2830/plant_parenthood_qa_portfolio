@@ -22,15 +22,19 @@ sunlight_requirements = [
     "Direct Sun"
 ]
 
-for i in range(len(plant_names)):
-    current_plant = plant_names[i]
-    light = sunlight_requirements[i]
+
+def generate_care_recommendations():
+    
+    for i in range(len(plant_names)):
+        current_plant = plant_names[i]
+        light = sunlight_requirements[i]
+        
+        if light == "Direct Sun":
+            print(current_plant + ": Requires full direct sunlight.")
+        elif light == "Indirect Light":
+            print(current_plant + ": Thrives in bright indirect light.")
+        else:
+            print(current_plant + ": Tolerates low-light conditions.")
 
 
-
-    if light == "Direct Sun":
-        print(current_plant + ": Requires full direct sunlight.")
-    elif light == "Indirect Light":
-        print(current_plant + ": Thrives in bright indirect light.")
-    else:
-        print(current_plant + ": Tolerates low-light conditions.")
+generate_care_recommendations()

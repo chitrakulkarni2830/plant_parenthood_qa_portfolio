@@ -8,15 +8,21 @@ for (const plant of plantNames) {
     console.log(plant);
 }
 
-for (let i = 0; i < plantNames.length; i++) {
-    const currentPlant = plantNames[i];
-    const light = sunlightRequirements[i];
+
+function generateCareRecommendations() {
     
-    if (light === "Direct Sun") {
-    console.log(currentPlant + ": Requires full direct sunlight.");
-} else if (light === "Indirect Light") {
-    console.log(currentPlant + ": Thrives in bright indirect light.");
-} else {
-    console.log(currentPlant + ": Tolerates low-light conditions.");
+    for (let i = 0; i < plantNames.length; i++) {
+        const currentPlant = plantNames[i];
+        const light = sunlightRequirements[i];
+    
+        if (light === "Direct Sun") {
+            console.log(currentPlant + ": Requires full direct sunlight.");
+        } else if (light === "Indirect Light") {
+            console.log(currentPlant + ": Thrives in bright indirect light.");
+        } else {
+            console.log(currentPlant + ": Tolerates low-light conditions.");
+        }
+    } 
 }
-}
+
+generateCareRecommendations()
