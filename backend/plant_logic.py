@@ -66,14 +66,20 @@ def generate_care_recommendations():
             print(current_plant + ": Tolerates low-light conditions.")
 
 
-generate_care_recommendations()
-
-
 user_input = "Rose"
 def search_plant():
     for plant in plant_database:
         if plant["name"] == user_input:
             return plant
         
-    
+    return None   
+
 result = search_plant()
+
+if result:
+    print("🎉🌱 YAY! Plant Found! 🌱🎉")
+    print(f"🌸 Name: {result['name']}")
+    print(f"🪴 Category: {result['category']}")
+    print(f"☀️ Sunlight: {result['sunlight']}")
+else:
+    print("🥺🌱 Oops! Plant Not Found")
