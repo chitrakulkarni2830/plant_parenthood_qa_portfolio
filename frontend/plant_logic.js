@@ -27,6 +27,36 @@ const plantDatabase = [
         name: "Rose",
         category: "Flowering Plants",
         sunlight: "Direct Sun"
+    },
+
+    {
+    name: "Money Plant",
+    category: "Indoor Plants",
+    sunlight: "Indirect Light"
+    },
+
+    {
+    name: "Tulsi",
+    category: "Herbs",
+    sunlight: "Direct Sun"
+    },
+
+    {
+    name: "Mint",
+    category: "Herbs",
+    sunlight: "Direct Sun"
+    },
+
+    {
+    name: "Jasmine",
+    category: "Flowering Plants",
+    sunlight: "Direct Sun"
+    },
+
+    {
+    name: "Hibiscus",
+    category: "Flowering Plants",
+    sunlight: "Direct Sun"
     }
 ];
 
