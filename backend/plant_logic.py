@@ -67,3 +67,13 @@ def generate_care_recommendations():
 
 
 generate_care_recommendations()
+
+
+user_input = "Rose"
+def search_plant():
+    for plant in plant_database:
+        if plant["name"] == user_input:
+            return plant
+        
+    
+result = search_plant()
