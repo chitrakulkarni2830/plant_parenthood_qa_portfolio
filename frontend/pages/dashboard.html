@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plant Parenthood Dashboard — Search, discover and care for your green family." />
+  <title>Plant Parenthood 🌿 — Dashboard</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Dashboard Specific Styles ── */
+    .dashboard-page {
+      min-height: 100vh;
+      background: var(--cream);
+    }
+
+    /* Hero welcome strip */
+    .hero-strip {
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--lavender-pale) 60%, var(--blush-pale) 100%);
+      border-bottom: 1px solid rgba(232,221,208,0.5);
+      padding: 48px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-strip .bg-blob {
+      position: absolute;
+    }
+
+    .hero-strip .blob-a {
+      width: 300px; height: 300px;
+      background: var(--blush-light);
+      top: -100px; right: -60px;
+    }
+
+    .hero-strip .blob-b {
+      width: 200px; height: 200px;
+      background: var(--lavender-light);
+      bottom: -60px; left: 10%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .hero-text p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      max-width: 500px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-plant-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* Main content layout */
+    .dashboard-body {
+      padding: 40px 0 80px;
+    }
+
+    .section-gap {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label .label-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Feature Cards Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sage), var(--lavender));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sage-light);
+    }
+
+    .feature-card.card-blush:hover { border-color: var(--blush); }
+    .feature-card.card-lavender:hover { border-color: var(--lavender); }
+
+    .feature-card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .feature-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    /* Search Sections */
+    .search-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(232,221,208,0.6);
+    }
+
+    .search-section + .search-section {
+      margin-top: 24px;
+    }
+
+    .search-section-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-section-subtitle {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-row .input-group {
+      flex: 1;
+    }
+
+    /* Sidebar */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(232,221,208,0.6);
+    }
+
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Featured plant */
+    .featured-plant-card {
+      text-align: center;
+      background: linear-gradient(160deg, var(--lavender-pale) 0%, var(--blush-pale) 100%);
+      border: 1px solid rgba(197,184,216,0.3);
+    }
+
+    /* Today's tip */
+    .tip-card {
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--lavender-pale) 100%);
+      border: 1px solid rgba(143,173,136,0.2);
+    }
+
+    .tip-card .tip-text {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quick-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      background: var(--cream);
+      border: 1px solid var(--beige);
+      color: var(--text-mid);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: left;
+    }
+
+    .quick-action-btn:hover {
+      background: var(--sage-pale);
+      border-color: var(--sage-light);
+      color: var(--sage);
+      transform: translateX(4px);
+    }
+
+    .quick-action-btn .qa-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Plant count sidebar widget */
+    .count-widget {
+      text-align: center;
+    }
+
+    .count-widget .big-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--sage);
+      line-height: 1;
+      display: block;
+    }
+
+    .count-widget .count-sub {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    /* Plant list mini */
+    .plant-mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
+    .plant-mini-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--cream);
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      transition: all var(--transition);
+    }
+
+    .plant-mini-item:hover {
+      background: var(--sage-pale);
+      color: var(--text-dark);
+    }
+
+    /* Section anchor scroll targets */
+    .scroll-target {
+      scroll-margin-top: 88px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .hero-plant-img {
+        display: none;
+      }
+
+      .search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-strip {
+        padding: 32px 0 28px;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-section {
+        padding: 20px 16px;
+      }
+
+      .dashboard-body {
+        padding: 24px 0 60px;
+      }
+    }
+
+    /* Sunlight icons in select */
+    .sunlight-icon {
+      margin-right: 6px;
+    }
+
+    /* Nav logout btn */
+    .nav-logout {
+      background: none;
+      border: none;
+      color: var(--text-soft);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition);
+    }
+
+    .nav-logout:hover {
+      color: var(--blush);
+    }
+  </style>
+</head>
+<body class="dashboard-page">
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="navbar-brand">
+    <span class="brand-icon">🌿</span>
+    <span class="brand-name">Plant Parenthood</span>
+  </div>
+
+  <div class="hamburger" id="hamburger" aria-label="Toggle Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="navbar-links" id="navLinks">
+    <li><a href="#search-section" class="active">Search</a></li>
+    <li><a href="#care-section">Care</a></li>
+    <li><a href="#tips-section">Tips</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="navbar-user">
+      <div class="navbar-avatar" id="navAvatar">P</div>
+      <span class="navbar-username" id="navUsername">Plant Parent</span>
+    </div>
+    <button class="nav-logout" id="logoutBtn" aria-label="Log Out">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO WELCOME STRIP
+═══════════════════════════════════════════ -->
+<section class="hero-strip">
+  <div class="bg-blob blob-a"></div>
+  <div class="bg-blob blob-b"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 id="welcomeMsg">Good morning, Plant Parent! 🌿</h1>
+        <p>Your green family is waiting. Discover plants, find care tips, and grow your knowledge today.</p>
+        <div class="hero-badge-row">
+          <span class="badge badge-sage">🌱 <span id="countBadge">15</span> Plants</span>
+          <span class="badge badge-blush">🌸 6 Categories</span>
+          <span class="badge badge-lavender">☀️ 3 Sunlight Types</span>
+        </div>
+      </div>
+      <img
+        src="../assets/images/plant_logo.png"
+        alt="Plant illustration"
+        class="hero-plant-img"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DASHBOARD BODY
+═══════════════════════════════════════════ -->
+<main class="dashboard-body">
+  <div class="container">
+
+    <!-- ── Today's Tip Banner ── -->
+    <div class="tip-banner section-gap" id="tips-section">
+      <span class="tip-icon">💡</span>
+      <div>
+        <div class="tip-label">Today's Plant Tip</div>
+        <div class="tip-text" id="todayTip">Loading today's tip…</div>
+      </div>
+    </div>
+
+    <!-- ── Feature Cards ── -->
+    <div class="section-gap">
+      <div class="section-header">
+        <div class="section-label">
+          <span class="label-icon">🔍</span>
+          <h2 class="section-title">Explore Features</h2>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card" data-scroll-to="name-search-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-sage">🔍</div>
+          <div class="feature-card-title">Search by Name</div>
+          <div class="feature-card-desc">Find any plant instantly by its exact name.</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card card-blush" data-scroll-to="category-search-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-blush">🌸</div>
+          <div class="feature-card-title">Browse by Category</div>
+          <div class="feature-card-desc">Explore Indoor Plants, Herbs, Succulents and more.</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card card-lavender" data-scroll-to="sunlight-search-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-lavender">☀️</div>
+          <div class="feature-card-title">Filter by Sunlight</div>
+          <div class="feature-card-desc">Find plants that match your light conditions.</div>
+        </div>
+        <!-- Card 4 -->
+        <div class="feature-card" data-scroll-to="partial-search-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-beige">✨</div>
+          <div class="feature-card-title">Partial Search</div>
+          <div class="feature-card-desc">Type a few letters and discover matching plants.</div>
+        </div>
+        <!-- Card 5 -->
+        <div class="feature-card card-blush" data-scroll-to="care-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-blush">💚</div>
+          <div class="feature-card-title">Care Guide</div>
+          <div class="feature-card-desc">Get personalised care tips for any plant.</div>
+        </div>
+        <!-- Card 6 -->
+        <div class="feature-card card-lavender" data-scroll-to="count-section" role="button" tabindex="0">
+          <div class="feature-icon feature-icon-lavender">🌱</div>
+          <div class="feature-card-title">Plant Count</div>
+          <div class="feature-card-desc">See how many plants are in our database.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Main Layout: Searches + Sidebar ── -->
+    <div class="dashboard-layout">
+
+      <!-- Left: Search Sections -->
+      <div id="search-section">
+
+        <!-- ─ 1. Search by Name ─ -->
+        <div class="search-section scroll-target section-gap" id="name-search-section">
+          <div class="search-section-title">
+            <span>🔍</span> Search Plant by Name
+          </div>
+          <div class="search-section-subtitle">Enter the exact plant name (e.g. Rose, Monstera, Aloe Vera)</div>
+
+          <div class="search-row">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input
+                type="text"
+                id="nameSearchInput"
+                class="input-field"
+                placeholder="Type a plant name…"
+                aria-label="Search plant by name"
+              />
+            </div>
+            <button class="btn btn-primary" id="nameSearchBtn" aria-label="Search">
+              Search
+            </button>
+          </div>
+
+          <div class="results-panel" id="nameSearchResult">
+            <div class="empty-state">
+              <div class="empty-icon">🌿</div>
+              <p>Enter a plant name above to search.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ 2. Search by Category ─ -->
+        <div class="search-section scroll-target section-gap" id="category-search-section">
+          <div class="search-section-title">
+            <span>🌸</span> Search by Category
+          </div>
+          <div class="search-section-subtitle">Select a category to see all matching plants</div>
+
+          <div class="search-row">
+            <div class="input-group" style="position:relative">
+              <span class="input-icon"><i class="fa-solid fa-layer-group"></i></span>
+              <select
+                id="categorySelect"
+                class="select-field"
+                style="padding-left:48px"
+                aria-label="Select plant category"
+              >
+                <option value="">— Choose a category —</option>
+                <option value="Indoor Plants">🏠 Indoor Plants</option>
+                <option value="Flowering Plants">🌸 Flowering Plants</option>
+                <option value="Herbs">🌿 Herbs</option>
+                <option value="Succulents">🪴 Succulents</option>
+                <option value="Fruits">🍅 Fruits</option>
+                <option value="Vegetables">🥬 Vegetables</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="results-panel" id="categoryResult">
+            <div class="empty-state">
+              <div class="empty-icon">🌸</div>
+              <p>Select a category from the dropdown above.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ 3. Search by Sunlight ─ -->
+        <div class="search-section scroll-target section-gap" id="sunlight-search-section">
+          <div class="search-section-title">
+            <span>☀️</span> Search by Sunlight
+          </div>
+          <div class="search-section-subtitle">Find plants based on their light requirements</div>
+
+          <div class="search-row">
+            <div class="input-group" style="position:relative">
+              <span class="input-icon"><i class="fa-solid fa-sun"></i></span>
+              <select
+                id="sunlightSelect"
+                class="select-field"
+                style="padding-left:48px"
+                aria-label="Select sunlight type"
+              >
+                <option value="">— Choose sunlight type —</option>
+                <option value="Direct Sun">☀️ Direct Sun</option>
+                <option value="Indirect Light">⛅ Indirect Light</option>
+                <option value="Low Light">🌑 Low Light</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="results-panel" id="sunlightResult">
+            <div class="empty-state">
+              <div class="empty-icon">☀️</div>
+              <p>Select a sunlight type to see matching plants.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ 4. Partial Search ─ -->
+        <div class="search-section scroll-target section-gap" id="partial-search-section">
+          <div class="search-section-title">
+            <span>✨</span> Partial Search
+          </div>
+          <div class="search-section-subtitle">Type a few letters and find matching plants (e.g. "Mon", "Ros", "Mint")</div>
+
+          <div class="search-row">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              <input
+                type="text"
+                id="partialInput"
+                class="input-field"
+                placeholder="Type to search…"
+                aria-label="Partial plant search"
+              />
+            </div>
+            <button class="btn btn-secondary" id="partialSearchBtn">Search</button>
+          </div>
+
+          <div class="results-panel" id="partialResult">
+            <div class="empty-state">
+              <div class="empty-icon">✨</div>
+              <p>Start typing to search across all plant names.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ 5. Care Recommendations ─ -->
+        <div class="search-section scroll-target section-gap" id="care-section">
+          <div class="search-section-title">
+            <span>💚</span> Care Recommendations
+          </div>
+          <div class="search-section-subtitle">Enter a plant name to get tailored care advice</div>
+
+          <div class="search-row">
+            <div class="input-group">
+              <span class="input-icon"><i class="fa-solid fa-heart"></i></span>
+              <input
+                type="text"
+                id="careInput"
+                class="input-field"
+                placeholder="e.g. Monstera, Rose, Tulsi…"
+                aria-label="Get care recommendation"
+              />
+            </div>
+            <button class="btn btn-blush" id="careSearchBtn">Get Tips</button>
+          </div>
+
+          <div class="results-panel" id="careResult">
+            <div class="empty-state">
+              <div class="empty-icon">💚</div>
+              <p>Enter a plant name to get its care recommendations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ 6. Plant Count ─ -->
+        <div class="search-section scroll-target" id="count-section">
+          <div class="search-section-title">
+            <span>🌱</span> Plant Count
+          </div>
+          <div class="search-section-subtitle">See the total number of plants in our database</div>
+
+          <div style="margin-bottom:20px">
+            <button class="btn btn-primary" id="countBtn" aria-label="Show plant count">
+              🌱 Show Plant Count
+            </button>
+          </div>
+
+          <div class="results-panel" id="countResult">
+            <div class="empty-state">
+              <div class="empty-icon">🌱</div>
+              <p>Click the button above to see the total plant count.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /search-section -->
+
+      <!-- Right: Sidebar -->
+      <aside class="sidebar" aria-label="Sidebar">
+
+        <!-- Featured Plant -->
+        <div class="sidebar-card featured-plant-card">
+          <div class="sidebar-title">🌟 Plant of the Day</div>
+          <div id="featuredPlant">
+            <div class="empty-state" style="padding:20px">
+              <div class="empty-icon">🌿</div>
+              <p>Loading…</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">⚡ Quick Actions</div>
+          <div class="quick-actions">
+            <button class="quick-action-btn" data-scroll-to="name-search-section">
+              <span class="qa-icon" style="background:var(--sage-pale)">🔍</span>
+              Search by Name
+            </button>
+            <button class="quick-action-btn" data-scroll-to="category-search-section">
+              <span class="qa-icon" style="background:var(--blush-light)">🌸</span>
+              Browse Categories
+            </button>
+            <button class="quick-action-btn" data-scroll-to="sunlight-search-section">
+              <span class="qa-icon" style="background:var(--lavender-light)">☀️</span>
+              Filter by Sunlight
+            </button>
+            <button class="quick-action-btn" data-scroll-to="care-section">
+              <span class="qa-icon" style="background:var(--beige-light)">💚</span>
+              Get Care Tips
+            </button>
+          </div>
+        </div>
+
+        <!-- All Plants List -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">🌿 All Plants</div>
+          <div class="plant-mini-list" id="allPlantsList">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Count Widget -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">📊 Database Stats</div>
+          <div class="count-widget">
+            <span class="big-number" id="sidebarCount">—</span>
+            <div class="count-sub">Total Plants in Database</div>
+          </div>
+          <div class="divider"></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-soft)">
+            <span>Categories: <strong style="color:var(--text-mid)">6</strong></span>
+            <span>Sunlight: <strong style="color:var(--text-mid)">3</strong></span>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </div>
+</main>
+
+<!-- Toast -->
+<div class="toast" id="globalToast"></div>
+
+<script src="../app.js"></script>
+<script>
+  // Render All Plants mini-list in sidebar
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('allPlantsList');
+    const sidebarCount = document.getElementById('sidebarCount');
+
+    if (list && typeof plantDatabase !== 'undefined') {
+      // Intentional defect: renders only first 12 plants (missing last 3)
+      const displayed = plantDatabase.slice(0, 12);
+      list.innerHTML = displayed.map(p => `
+        <div class="plant-mini-item">
+          <span>${plantEmojis[p.name] || '🌱'}</span>
+          <span>${p.name}</span>
+          <span class="badge badge-${getSunlightBadge(p.sunlight)}" style="margin-left:auto;font-size:0.7rem">${p.category}</span>
+        </div>
+      `).join('');
+    }
+
+    // Intentional defect: sidebar count uses correct length but badge uses wrong count
+    if (sidebarCount && typeof plantDatabase !== 'undefined') {
+      sidebarCount.textContent = plantDatabase.length;
+    }
+  });
+</script>
+
+</body>
+</html>

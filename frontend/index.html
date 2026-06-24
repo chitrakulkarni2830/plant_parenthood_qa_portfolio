@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plant Parenthood — Your cozy plant care companion. Care. Nurture. Grow." />
+  <title>Plant Parenthood 🌿 — Care. Nurture. Grow.</title>
+  <link rel="stylesheet" href="frontend/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #e8f0e6 0%, #faf7f2 50%, #f5f2fb 100%);
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;600&display=swap');
+
+    .landing-card {
+      background: white;
+      border-radius: 36px;
+      padding: 56px 64px;
+      text-align: center;
+      box-shadow: 0 12px 48px rgba(143, 173, 136, 0.2);
+      max-width: 480px;
+      width: 90%;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .land-emoji {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .land-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3d3530;
+      margin-bottom: 8px;
+    }
+
+    .land-tag {
+      font-size: 0.85rem;
+      color: #9b8f89;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .land-desc {
+      font-size: 0.95rem;
+      color: #6b5e57;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    .land-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #8fad88 0%, #7a9e73 100%);
+      color: white;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(143, 173, 136, 0.4);
+      transition: all 0.28s ease;
+    }
+
+    .land-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(143, 173, 136, 0.5);
+    }
+
+    .land-meta {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.8rem;
+      color: #bdb4af;
+    }
+
+    .land-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="landing-card">
+  <span class="land-emoji">🌿</span>
+  <h1 class="land-title">Plant Parenthood</h1>
+  <p class="land-tag">Care · Nurture · Grow</p>
+  <p class="land-desc">
+    Your cozy plant care companion.<br>
+    Search, discover, and nurture your green family — one leaf at a time.
+  </p>
+  <a href="frontend/pages/login.html" class="land-btn">
+    Start My Plant Journey →
+  </a>
+  <div class="land-meta">
+    <span>🌱 15 Plants</span>
+    <span>🌸 6 Categories</span>
+    <span>☀️ 3 Light Types</span>
+  </div>
+</div>
+
+</body>
+</html>
