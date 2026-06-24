@@ -1186,4 +1186,180 @@ Moon Light
 
 PASS
 
+---
+
+## TC-022
+
+### Module
+
+Partial Search
+
+### Test Scenario
+
+Verify application displays all plants matching a valid partial search value.
+
+### Preconditions
+
+Plant database contains plants whose names contain:
+
+Mon
+
+### Test Steps
+
+1. Enter partial search value:
+
+   Mon
+
+2. Execute partial search.
+
+3. Observe displayed results.
+
+### Test Data
+
+Mon
+
+### Expected Result
+
+Application displays:
+
+🌱 Monstera
+
+🌱 Money Plant
+
+### Actual Result
+
+Application displays:
+
+🌱 Monstera
+
+🌱 Money Plant
+
+### Status
+
+PASS
+
+
+----
+
+
+## TC-023
+
+### Module
+
+Partial Search
+
+### Test Scenario
+
+Verify application supports case-insensitive partial search.
+
+### Preconditions
+
+Plant database contains plants whose names contain:
+
+Mon
+
+### Test Steps
+
+1. Enter partial search value:
+
+   mon
+
+2. Execute partial search.
+
+3. Observe displayed results.
+
+### Test Data
+
+mon
+
+### Expected Result
+
+Application treats:
+
+mon
+
+and
+
+Mon
+
+as equivalent values.
+
+Application displays:
+
+🌱 Monstera
+
+🌱 Money Plant
+
+### Actual Result
+
+Application treats:
+
+mon
+
+and
+
+Mon
+
+as equivalent values.
+
+Application displays:
+
+🌱 Monstera
+
+🌱 Money Plant
+
+### Status
+
+PASS
+
+
+---
+
+
+## TC-024
+
+### Module
+
+Partial Search
+
+### Test Scenario
+
+Verify application displays Plant Not Found for an invalid partial search value.
+
+### Preconditions
+
+Plant database does not contain:
+
+xyz
+
+### Test Steps
+
+1. Enter partial search value:
+
+   xyz
+
+2. Execute partial search.
+
+3. Observe displayed results.
+
+### Test Data
+
+xyz
+
+### Expected Result
+
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+### Status
+
+PASS
+
 
