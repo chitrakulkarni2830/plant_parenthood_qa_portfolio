@@ -592,27 +592,29 @@ Plant database contains 10 plant records.
 
 ### Test Steps
 
-1. Add a new plant record to the plant database.
+1. Add 6 new plant records to the plant database.
 2. Execute plant_logic.py.
 3. Observe displayed plant count.
 
 ### Expected Result
 
-Plant count increases by 1.
+Plant count increases by 6.
 
 Example:
 
 Previous Count: 10
 
-Updated Count: 11
+Updated Count: 16
 
-### Actual Result
+### Actual Result:
 
-Not Executed
+Previous Count: 10
 
-### Status
+Updated Count: 16
 
-NOT EXECUTED
+### Status:
+
+PASS
 
 ---
 
@@ -646,13 +648,15 @@ Previous Count: 10
 
 Updated Count: 9
 
-### Actual Result
+### Actual Result:
 
-Not Executed
+Previous Count: 16
 
-### Status
+Updated Count: 15
 
-NOT EXECUTED
+### Status:
+
+PASS
 
 ---
 
@@ -688,14 +692,15 @@ Database Records: 10
 
 Displayed Count: 10
 
-### Actual Result
+### Actual Result:
 
-Not Executed
+Previous Count: 15
 
-### Status
+Updated Count: 15
 
-NOT EXECUTED
+### Status:
 
+PASS
 ---
 
 ## TC-014
