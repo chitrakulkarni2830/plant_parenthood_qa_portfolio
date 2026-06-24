@@ -509,3 +509,25 @@ Application identifies Rose and displays plant details regardless of letter casi
 ### Status
 
 PASS
+
+---
+
+### TC-009
+
+### Test Scenario
+
+Verify application displays welcome banner on startup.
+
+### Expected Result
+
+Application displays:
+
+🌿 Welcome to Plant Parenthood 🌿
+
+### Actual Result
+
+Application displays welcome banner successfully.
+
+### Status
+
+PASS
