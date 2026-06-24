@@ -111,11 +111,16 @@ function generateCareRecommendations() {
 
 }
 
+
+
 const plantNameInput = "rose";
 
 function searchPlant() {
+
     for (const plant of plantDatabase) {
-        if (plant.name.toLowerCase() === userInput.toLowerCase()) {
+
+        if (plant.name.toLowerCase() === plantNameInput.toLowerCase()) {
+
             return plant;
         }
     }
@@ -126,15 +131,18 @@ function searchPlant() {
 const result = searchPlant();
 
 if (result) {
+
     console.log("🎉🌱 YAY! Plant Found! 🌱🎉");
     console.log(`🌸 Name: ${result.name}`);
     console.log(`🪴 Category: ${result.category}`);
     console.log(`☀️ Sunlight: ${result.sunlight}`);
+
 } else {
+
     console.log("🥺🌱 Oops! Plant Not Found");
 }
 
-searchPlant();
+
 
 
 const categoryInput = "Flowering Plants";
@@ -148,7 +156,7 @@ function searchByCategory() {
 
     for (const plant of plantDatabase) {
 
-        if (plant.category.toLowerCase() === userInput.toLowerCase()) {
+        if (plant.category.toLowerCase() === categoryInput.toLowerCase()) {
 
             console.log("🌸 " + plant.name);
 
@@ -165,6 +173,8 @@ function searchByCategory() {
 searchByCategory();
 
 
+
+
 const sunlightInput = "Direct Sun";
 
 function searchBySunlight() {
@@ -176,7 +186,7 @@ function searchBySunlight() {
 
     for (const plant of plantDatabase) {
 
-        if (plant.sunlight.toLowerCase() === userInput.toLowerCase()) {
+        if (plant.sunlight.toLowerCase() === sunlightInput.toLowerCase()) {
 
             console.log("🌱 " + plant.name);
 

@@ -159,26 +159,26 @@ def search_by_category():
 search_by_category()
 
 
-user_input = "Flowering Plants"
+user_input = "Direct Sun"
 
-def search_by_category():
+def search_by_sunlight():
 
-    category_found = False
+    sunlight_found = False
 
-    print("🌸 Matching Plants Found 🌸")
+    print("☀️ Matching Plants Found ☀️")
     print()
 
     for plant in plant_database:
 
-        if plant["category"].lower() == user_input.lower():
+        if plant["sunlight"].lower() == user_input.lower():
 
-            print("🌸 " + plant["name"])
+            print("🌱 " + plant["name"])
 
-            category_found = True
+            sunlight_found = True
 
-    if category_found == False:
+    if sunlight_found == False:
 
         print("🥺🌱 Oops! Plant Not Found")
 
 
-search_by_category()
+search_by_sunlight()
