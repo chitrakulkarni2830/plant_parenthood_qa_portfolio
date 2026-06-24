@@ -53,6 +53,36 @@ plant_database = [
     "name": "Hibiscus",
     "category": "Flowering Plants",
     "sunlight": "Direct Sun"
+      },
+
+      {
+    "name": "Marigold",
+    "category": "Flowering Plants",
+    "sunlight": "Direct Sun"
+      },
+
+      {
+    "name": "Curry Leaves",
+    "category": "Herbs",
+    "sunlight": "Direct Sun"
+      },
+
+      {
+    "name": "Chili",
+    "category": "Vegetables",
+    "sunlight": "Direct Sun"
+      },
+
+      {
+    "name": "Jade Plant",
+    "category": "Succulents",
+    "sunlight": "Direct Sun"
+      },
+
+      {
+    "name": "Lucky Bamboo",
+    "category": "Indoor Plants",
+    "sunlight": "Indirect Light"
       }
 ]
 

@@ -644,9 +644,9 @@ Plant count decreases by 1.
 
 Example:
 
-Previous Count: 10
+Previous Count: 16
 
-Updated Count: 9
+Updated Count: 15
 
 ### Actual Result:
 
