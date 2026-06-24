@@ -205,3 +205,31 @@ function searchBySunlight() {
 }
 
 searchBySunlight();
+
+
+const partialInput = "Ros";
+
+function partialSearch() {
+
+    let plantFound = false;
+
+    console.log("🌿 Matching Plants Found 🌿");
+    console.log("");
+
+    for (const plant of plantDatabase) {
+
+        if (plant.name.toLowerCase().includes(partialInput.toLowerCase())) {
+
+            console.log("🌱 " + plant.name);
+
+            plantFound = true;
+        }
+    }
+
+    if (plantFound === false) {
+
+        console.log("🥺🌱 Oops! Plant Not Found");
+    }
+}
+
+partialSearch();

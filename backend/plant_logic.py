@@ -182,3 +182,28 @@ def search_by_sunlight():
 
 
 search_by_sunlight()
+
+
+partial_input = "Ros"
+
+def partial_search():
+
+    plant_found = False
+
+    print("🌿 Matching Plants Found 🌿")
+    print()
+
+    for plant in plant_database:
+
+        if partial_input.lower() in plant["name"].lower():
+
+            print("🌱 " + plant["name"])
+
+            plant_found = True
+
+    if plant_found == False:
+
+        print("🥺🌱 Oops! Plant Not Found")
+
+
+partial_search()
