@@ -861,9 +861,25 @@ Application displays:
 🌸 Hibiscus
 🌸 Marigold
 
+
 ### Actual Result
 
-Not Executed
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+when the user enters:
+
+Flowering Plant
+
+### Status
+
+FAIL
+
+### Linked Defect
+
+PP-BUG-008
+
 
 ### Status
 

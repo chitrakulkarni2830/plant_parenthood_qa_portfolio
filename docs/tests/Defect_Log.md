@@ -685,3 +685,85 @@ Updated search functions to use:
 * sunlightInput
 
 Search functionality now returns correct results for all search features.
+
+
+---
+
+
+## PP-BUG-008
+
+### Linked Test Case
+
+TC-016
+
+### Type
+
+Validation Defect
+
+### Summary
+
+Category search does not support singular category names.
+
+### Description
+
+The category search feature performs an exact comparison between the user-entered category and the category values stored in the plant database.
+
+When a user enters:
+
+Flowering Plant
+
+the application fails to identify the corresponding category:
+
+Flowering Plants
+
+and incorrectly displays Plant Not Found.
+
+### Steps To Reproduce
+
+1. Enter:
+
+   Flowering Plant
+
+2. Execute category search.
+
+3. Observe search results.
+
+### Expected Result
+
+Application should treat:
+
+Flowering Plant
+
+and
+
+Flowering Plants
+
+as equivalent category values and display matching plants.
+
+Example:
+
+🌸 Rose
+
+🌸 Jasmine
+
+🌸 Hibiscus
+
+🌸 Marigold
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+### Severity
+
+Medium
+
+### Priority
+
+Medium
+
+### Status
+
+OPEN
