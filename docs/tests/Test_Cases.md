@@ -531,3 +531,202 @@ Application displays welcome banner successfully.
 ### Status
 
 PASS
+---
+
+## TC-010
+
+### Module
+
+Plant Count
+
+### Test Scenario
+
+Verify application displays total number of plants available in the database.
+
+### Preconditions
+
+Plant database contains 10 plant records.
+
+### Test Steps
+
+1. Execute plant_logic.py.
+2. Observe application output.
+3. Locate plant count section.
+
+### Expected Result
+
+Application displays:
+
+🌱 Total Plants Available: 10
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+---
+
+## TC-011
+
+### Module
+
+Plant Count
+
+### Test Scenario
+
+Verify plant count increases when a new plant record is added to the database.
+
+### Preconditions
+
+Plant database contains 10 plant records.
+
+### Test Steps
+
+1. Add a new plant record to the plant database.
+2. Execute plant_logic.py.
+3. Observe displayed plant count.
+
+### Expected Result
+
+Plant count increases by 1.
+
+Example:
+
+Previous Count: 10
+
+Updated Count: 11
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+---
+
+## TC-012
+
+### Module
+
+Plant Count
+
+### Test Scenario
+
+Verify plant count decreases when a plant record is removed from the database.
+
+### Preconditions
+
+Plant database contains 10 plant records.
+
+### Test Steps
+
+1. Remove an existing plant record from the plant database.
+2. Execute plant_logic.py.
+3. Observe displayed plant count.
+
+### Expected Result
+
+Plant count decreases by 1.
+
+Example:
+
+Previous Count: 10
+
+Updated Count: 9
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+---
+
+## TC-013
+
+### Module
+
+Plant Count
+
+### Test Scenario
+
+Verify displayed plant count matches the total number of plant records present in the database.
+
+### Preconditions
+
+Plant database contains 10 plant records.
+
+### Test Steps
+
+1. Open plant_database.
+2. Count the total number of plant records.
+3. Execute plant_logic.py.
+4. Observe displayed plant count.
+5. Compare displayed count with actual database count.
+
+### Expected Result
+
+Displayed plant count matches the total number of records present in the database.
+
+Example:
+
+Database Records: 10
+
+Displayed Count: 10
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+---
+
+## TC-014
+
+### Module
+
+Plant Count
+
+### Test Scenario
+
+Verify application displays correct plant count when the database contains zero plant records.
+
+### Preconditions
+
+Plant database is empty.
+
+Example:
+
+plant_database = []
+
+### Test Steps
+
+1. Remove all plant records from the plant database.
+2. Execute plant_logic.py.
+3. Observe displayed plant count.
+
+### Expected Result
+
+Application displays:
+
+🌱 Total Plants Available: 0
+
+Application should execute successfully without errors.
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
