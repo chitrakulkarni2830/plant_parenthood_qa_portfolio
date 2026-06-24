@@ -706,17 +706,17 @@ Category search does not support singular category names.
 
 ### Description
 
-The category search feature performs an exact comparison between the user-entered category and the category values stored in the plant database.
+The category search feature performed an exact comparison between the user-entered category and the category values stored in the plant database.
 
-When a user enters:
+When a user entered:
 
 Flowering Plant
 
-the application fails to identify the corresponding category:
+the application failed to identify the corresponding category:
 
 Flowering Plants
 
-and incorrectly displays Plant Not Found.
+and incorrectly displayed Plant Not Found.
 
 ### Steps To Reproduce
 
@@ -740,19 +740,9 @@ Flowering Plants
 
 as equivalent category values and display matching plants.
 
-Example:
-
-🌸 Rose
-
-🌸 Jasmine
-
-🌸 Hibiscus
-
-🌸 Marigold
-
 ### Actual Result
 
-Application displays:
+Application displayed:
 
 🥺🌱 Oops! Plant Not Found
 
@@ -766,4 +756,15 @@ Medium
 
 ### Status
 
-OPEN
+CLOSED
+
+### Resolution
+
+Updated category search logic to support singular and plural category matching.
+
+Application now successfully treats:
+
+* Flowering Plant
+* Flowering Plants
+
+as equivalent category values and returns matching results.

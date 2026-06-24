@@ -874,16 +874,11 @@ Flowering Plant
 
 ### Status
 
-FAIL
+PASS
 
 ### Linked Defect
 
 PP-BUG-008
-
-
-### Status
-
-NOT EXECUTED
 
 
 ---

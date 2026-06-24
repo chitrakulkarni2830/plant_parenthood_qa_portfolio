@@ -145,7 +145,7 @@ if (result) {
 
 
 
-const categoryInput = "Flowering Plants";
+const categoryInput = "Flowering Plant";
 
 function searchByCategory() {
 
@@ -154,9 +154,14 @@ function searchByCategory() {
     console.log("🌸 Matching Plants Found 🌸");
     console.log("");
 
+    const normalizedCategory = categoryInput.toLowerCase();
+
     for (const plant of plantDatabase) {
 
-        if (plant.category.toLowerCase() === categoryInput.toLowerCase()) {
+        if (
+            plant.category.toLowerCase() === normalizedCategory ||
+            plant.category.toLowerCase() === normalizedCategory + "s"
+        ) {
 
             console.log("🌸 " + plant.name);
 
@@ -171,7 +176,6 @@ function searchByCategory() {
 }
 
 searchByCategory();
-
 
 
 
