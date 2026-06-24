@@ -980,9 +980,12 @@ Each search function should use its corresponding input variable and return corr
 
 ### Actual Result
 
-Not Executed
+All search functions successfully use their respective input variables and return correct results.
 
 ### Status
 
-NOT EXECUTED
+PASS
 
+### Linked Defect
+
+FP-BUG-006

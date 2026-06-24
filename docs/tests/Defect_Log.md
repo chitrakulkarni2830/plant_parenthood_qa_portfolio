@@ -678,7 +678,7 @@ CLOSED
 
 ### Resolution
 
-Updated search functions to use their respective input variables:
+Updated search functions to use:
 
 * plantNameInput
 * categoryInput
