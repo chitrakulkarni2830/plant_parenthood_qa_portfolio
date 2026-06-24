@@ -90,3 +90,15 @@ if result:
     print(f"☀️ Sunlight: {result['sunlight']}")
 else:
     print("🥺🌱 Oops! Plant Not Found")
+
+
+
+
+
+def plant_count():
+    plant_count = 0
+
+    for plant in plant_database:
+        plant_count = plant_count + 1
+
+    print(f"🌱 Total Plants Available: {plant_count}")
