@@ -737,8 +737,22 @@ Application should execute successfully without errors.
 
 ### Actual Result
 
-Not Executed
+Backend:
+
+🌱 Total Plants Available: 0
+
+Frontend:
+
+🌱 Total Plants Available: 0
+
+Application executed successfully without errors.
+
+Frontend and backend Plant Not Found messages were aligned successfully.
 
 ### Status
 
-NOT EXECUTED
+PASS
+
+### Linked Defect
+
+FP-BUG-005

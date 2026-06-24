@@ -131,5 +131,5 @@ if (result) {
     console.log(`🪴 Category: ${result.category}`);
     console.log(`☀️ Sunlight: ${result.sunlight}`);
 } else {
-    console.log("🥺🌱 Plant Not Found");
+    console.log("🥺🌱 Oops! Plant Not Found");
 }

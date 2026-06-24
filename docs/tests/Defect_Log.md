@@ -540,3 +540,70 @@ CLOSED
 ### Resolution
 
 Moved plant_count() invocation outside the function definition and executed it only once after function declaration.
+
+---
+
+## FP-BUG-005
+
+### Linked Test Case
+
+TC-014
+
+### Type
+
+Parity Defect
+
+### Summary
+
+Frontend and backend Plant Not Found messages do not match.
+
+### Description
+
+When a plant search returns no results, the backend displays:
+
+🥺🌱 Oops! Plant Not Found
+
+while the frontend displays:
+
+🥺🌱 Plant Not Found
+
+This creates inconsistent user experience across platforms.
+
+### Steps To Reproduce
+
+1. Set plant database to empty.
+2. Execute backend application.
+3. Execute frontend application.
+4. Compare Plant Not Found messages.
+
+### Expected Result
+
+Frontend and backend should display identical Plant Not Found messages.
+
+### Actual Result
+
+Frontend and backend display different messages.
+
+### Severity
+
+Low
+
+### Priority
+
+Low
+
+### Status
+
+CLOSED
+
+### Resolution
+
+Updated frontend Plant Not Found message to match backend output.
+
+Backend:
+🥺🌱 Oops! Plant Not Found
+
+Frontend:
+🥺🌱 Oops! Plant Not Found
+
+Frontend/backend parity successfully restored.
