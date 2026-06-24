@@ -132,3 +132,53 @@ def plant_count():
 
 
 plant_count()
+
+
+user_input = "Flowering Plants"
+
+def search_by_category():
+
+    category_found = False
+
+    print("🌸 Matching Plants Found 🌸")
+    print()
+
+    for plant in plant_database:
+
+        if plant["category"].lower() == user_input.lower():
+
+            print("🌸 " + plant["name"])
+
+            category_found = True
+
+    if category_found == False:
+
+        print("🥺🌱 Oops! Plant Not Found")
+
+
+search_by_category()
+
+
+user_input = "Flowering Plants"
+
+def search_by_category():
+
+    category_found = False
+
+    print("🌸 Matching Plants Found 🌸")
+    print()
+
+    for plant in plant_database:
+
+        if plant["category"].lower() == user_input.lower():
+
+            print("🌸 " + plant["name"])
+
+            category_found = True
+
+    if category_found == False:
+
+        print("🥺🌱 Oops! Plant Not Found")
+
+
+search_by_category()

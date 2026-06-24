@@ -133,3 +133,61 @@ if (result) {
 } else {
     console.log("🥺🌱 Oops! Plant Not Found");
 }
+
+searchPlant();
+
+
+const userInput = "Flowering Plants";
+
+function searchByCategory() {
+
+    let categoryFound = false;
+
+    console.log("🌸 Matching Plants Found 🌸");
+    console.log("");
+
+    for (const plant of plantDatabase) {
+
+        if (plant.category.toLowerCase() === userInput.toLowerCase()) {
+
+            console.log("🌸 " + plant.name);
+
+            categoryFound = true;
+        }
+    }
+
+    if (categoryFound === false) {
+
+        console.log("🥺🌱 Oops! Plant Not Found");
+    }
+}
+
+searchByCategory();
+
+
+const userInput = "Direct Sun";
+
+function searchBySunlight() {
+
+    let sunlightFound = false;
+
+    console.log("☀️ Matching Plants Found ☀️");
+    console.log("");
+
+    for (const plant of plantDatabase) {
+
+        if (plant.sunlight.toLowerCase() === userInput.toLowerCase()) {
+
+            console.log("🌱 " + plant.name);
+
+            sunlightFound = true;
+        }
+    }
+
+    if (sunlightFound === false) {
+
+        console.log("🥺🌱 Oops! Plant Not Found");
+    }
+}
+
+searchBySunlight();
