@@ -1363,3 +1363,157 @@ Application displays:
 PASS
 
 
+---
+
+
+## TC-025
+
+### Module
+
+Input Validation
+
+### Test Scenario
+
+Verify application displays a validation message when an empty search value is entered.
+
+### Preconditions
+
+Application is running successfully.
+
+### Test Steps
+
+1. Set:
+
+   user_input = ""
+
+2. Execute Search By Name.
+
+3. Observe displayed output.
+
+### Test Data
+
+""
+
+### Expected Result
+
+Application displays:
+
+⚠️ Please enter a search value
+
+Search execution is stopped.
+
+### Actual Result
+
+Application displays:
+
+⚠️ Please enter a search value
+
+Search execution is stopped.
+
+### Status
+
+PASS
+
+
+---
+
+
+## TC-026
+
+### Module
+
+Input Validation
+
+### Test Scenario
+
+Verify application displays a validation message when a whitespace-only search value is entered.
+
+### Preconditions
+
+Application is running successfully.
+
+### Test Steps
+
+1. Set:
+
+   user_input = "     "
+
+2. Execute Search By Name.
+
+3. Observe displayed output.
+
+### Test Data
+
+"     "
+
+### Expected Result
+
+Application displays:
+
+⚠️ Please enter a search value
+
+Search execution is stopped.
+
+### Actual Result
+
+Application displays:
+
+⚠️ Please enter a search value
+
+Search execution is stopped.
+
+### Status
+
+PASS
+
+
+---
+
+
+## TC-027
+
+### Module
+
+Input Validation
+
+### Test Scenario
+
+Verify valid input continues normal search execution.
+
+### Preconditions
+
+Application is running successfully.
+
+### Test Steps
+
+1. Set:
+
+   user_input = "ROSE"
+
+2. Execute Search By Name.
+
+3. Observe displayed output.
+
+### Test Data
+
+ROSE
+
+### Expected Result
+
+Application successfully finds the plant and displays plant details.
+
+### Actual Result
+
+Application displays:
+
+🎉🌱 YAY! Plant Found! 🌱🎉
+
+🌸 Name: Rose
+
+🪴 Category: Flowering Plants
+
+☀️ Sunlight: Direct Sun
+
+### Status
+
+PASS
