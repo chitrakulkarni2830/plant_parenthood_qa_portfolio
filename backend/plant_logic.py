@@ -1,3 +1,8 @@
+print("🌿 Welcome to Plant Parenthood 🌿")
+print()
+
+
+
 plant_database = [
 
     {"name": "Monstera",

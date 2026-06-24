@@ -1,3 +1,7 @@
+console.log("🌿 Welcome to Plant Parenthood 🌿");
+console.log("");
+
+
 const plantDatabase = [
     {
         name: "Monstera",
