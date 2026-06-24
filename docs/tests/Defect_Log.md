@@ -432,3 +432,111 @@ CLOSED
 ### Resolution
 
 Updated frontend search comparison to perform case-insensitive matching using toLowerCase() on both plant name and user input.
+
+---
+
+## PP-BUG-007
+
+### Linked Test Case
+
+TC-010
+
+### Type
+
+Logic Defect
+
+### Summary
+
+Plant Count feature does not execute because the function is never called.
+
+### Description
+
+The Plant Count function was implemented successfully but was not invoked anywhere in the application flow. As a result, the feature never executed and plant count information was not displayed to the user.
+
+### Steps To Reproduce
+
+1. Implement plant_count() function.
+2. Do not call the function.
+3. Execute plant_logic.py.
+
+### Expected Result
+
+Application displays total plant count.
+
+Example:
+
+🌱 Total Plants Available: 10
+
+### Actual Result
+
+Plant Count output is not displayed.
+
+### Severity
+
+Medium
+
+### Priority
+
+Medium
+
+### Status
+
+CLOSED
+
+### Resolution
+
+Added explicit function call:
+
+plant_count()
+
+after function definition.
+
+---
+
+## PP-BUG-008
+
+### Linked Test Case
+
+TC-010
+
+### Type
+
+Logic Defect
+
+### Summary
+
+Plant Count function recursively calls itself.
+
+### Description
+
+The function invocation was placed inside the plant_count() function body. This causes the function to repeatedly call itself instead of terminating normally.
+
+### Steps To Reproduce
+
+1. Implement plant_count() function.
+2. Add plant_count() inside the function body.
+3. Execute plant_logic.py.
+
+### Expected Result
+
+Function executes once and displays plant count.
+
+### Actual Result
+
+Function repeatedly calls itself, creating recursion and preventing normal execution.
+
+### Severity
+
+High
+
+### Priority
+
+High
+
+### Status
+
+CLOSED
+
+### Resolution
+
+Moved plant_count() invocation outside the function definition and executed it only once after function declaration.

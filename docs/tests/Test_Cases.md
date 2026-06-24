@@ -561,11 +561,18 @@ Application displays:
 
 ### Actual Result
 
-Not Executed
+🌱 Total Plants Available: 10
 
 ### Status
 
-NOT EXECUTED
+PASS
+
+### Linked Defects
+
+PP-BUG-007
+
+PP-BUG-008
+
 
 ---
 

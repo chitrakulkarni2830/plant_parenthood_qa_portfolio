@@ -92,13 +92,13 @@ else:
     print("🥺🌱 Oops! Plant Not Found")
 
 
-
-
-
 def plant_count():
     plant_count = 0
 
     for plant in plant_database:
-        plant_count = plant_count + 1
-
+      
+        plant_count = plant_count + 1 
     print(f"🌱 Total Plants Available: {plant_count}")
+
+
+plant_count()
