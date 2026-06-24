@@ -1000,3 +1000,190 @@ PASS
 ### Linked Defect
 
 FP-BUG-006
+
+---
+
+
+## TC-019
+
+### Module
+
+Search By Sunlight
+
+### Test Scenario
+
+Verify application displays all plants matching a valid sunlight requirement.
+
+### Preconditions
+
+Plant database contains plants with the sunlight requirement:
+
+Direct Sun
+
+### Test Steps
+
+1. Enter sunlight requirement:
+
+   Direct Sun
+
+2. Execute sunlight search.
+
+3. Observe displayed results.
+
+### Test Data
+
+Direct Sun
+
+### Expected Result
+
+Application displays all plants requiring Direct Sun sunlight.
+
+### Actual Result
+
+Application displays all plants matching the sunlight requirement:
+
+🌱 Aloe Vera
+
+🌱 Tomato
+
+🌱 Rose
+
+🌱 Tulsi
+
+🌱 Mint
+
+🌱 Jasmine
+
+🌱 Hibiscus
+
+🌱 Marigold
+
+🌱 Curry Leaves
+
+🌱 Chili
+
+🌱 Jade Plant
+
+### Status
+
+PASS
+
+
+----
+
+
+## TC-020
+
+### Module
+
+Search By Sunlight
+
+### Test Scenario
+
+Verify application supports case-insensitive sunlight search.
+
+### Preconditions
+
+Plant database contains plants with the sunlight requirement:
+
+Direct Sun
+
+### Test Steps
+
+1. Enter sunlight requirement:
+
+   direct sun
+
+2. Execute sunlight search.
+
+3. Observe displayed results.
+
+### Test Data
+
+direct sun
+
+### Expected Result
+
+Application treats:
+
+direct sun
+
+and
+
+Direct Sun
+
+as equivalent sunlight values.
+
+Application displays all matching plants.
+
+### Actual Result
+
+Application successfully treats:
+
+direct sun
+
+and
+
+Direct Sun
+
+as equivalent sunlight values.
+
+Application displays all matching plants requiring Direct Sun sunlight.
+
+### Status
+
+PASS
+
+---
+
+## TC-021
+
+### Module
+
+Search By Sunlight
+
+### Test Scenario
+
+Verify application displays Plant Not Found for an invalid sunlight requirement.
+
+### Preconditions
+
+Plant database does not contain the sunlight requirement:
+
+Moon Light
+
+### Test Steps
+
+1. Enter sunlight requirement:
+
+   Moon Light
+
+2. Execute sunlight search.
+
+3. Observe displayed results.
+
+### Test Data
+
+Moon Light
+
+### Expected Result
+
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+### Actual Result
+
+Application displays:
+
+🥺🌱 Oops! Plant Not Found
+
+when the user enters:
+
+Moon Light
+
+### Status
+
+PASS
+
+
