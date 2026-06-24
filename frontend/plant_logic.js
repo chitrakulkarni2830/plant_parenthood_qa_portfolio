@@ -111,7 +111,7 @@ function generateCareRecommendations() {
 
 }
 
-const userInput = "rose";
+const plantNameInput = "rose";
 
 function searchPlant() {
     for (const plant of plantDatabase) {
@@ -137,7 +137,7 @@ if (result) {
 searchPlant();
 
 
-const userInput = "Flowering Plants";
+const categoryInput = "Flowering Plants";
 
 function searchByCategory() {
 
@@ -165,7 +165,7 @@ function searchByCategory() {
 searchByCategory();
 
 
-const userInput = "Direct Sun";
+const sunlightInput = "Direct Sun";
 
 function searchBySunlight() {
 

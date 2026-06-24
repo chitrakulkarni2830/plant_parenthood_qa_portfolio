@@ -607,3 +607,81 @@ Frontend:
 🥺🌱 Oops! Plant Not Found
 
 Frontend/backend parity successfully restored.
+
+---
+
+## FP-BUG-006
+
+### Linked Test Case
+
+TC-018
+
+### Type
+
+Logic Defect
+
+### Summary
+
+Search functions reference incorrect input variables.
+
+### Description
+
+The Search By Name, Search By Category and Search By Sunlight features were updated to use dedicated input variables:
+
+* plantNameInput
+* categoryInput
+* sunlightInput
+
+However, the search logic continued referencing userInput during comparisons.
+
+As a result, search functionality referenced an incorrect variable and returned incorrect results.
+
+### Steps To Reproduce
+
+1. Set:
+
+   plantNameInput = "rose"
+
+2. Execute Search By Name.
+
+3. Set:
+
+   categoryInput = "Flowering Plants"
+
+4. Execute Search By Category.
+
+5. Set:
+
+   sunlightInput = "Direct Sun"
+
+6. Observe search results.
+
+### Expected Result
+
+Each search feature should use its corresponding input variable and return accurate search results.
+
+### Actual Result
+
+Search functions reference userInput instead of their dedicated input variables.
+
+### Severity
+
+High
+
+### Priority
+
+High
+
+### Status
+
+CLOSED
+
+### Resolution
+
+Updated search functions to use their respective input variables:
+
+* plantNameInput
+* categoryInput
+* sunlightInput
+
+Search functionality now returns correct results for all search features.

@@ -756,3 +756,233 @@ PASS
 ### Linked Defect
 
 FP-BUG-005
+
+---
+
+## TC-015
+
+### Module
+
+Category Search
+
+### Test Scenario
+
+Verify application displays all plants belonging to a valid category.
+
+### Preconditions
+
+Plant database contains plants belonging to the Flowering Plants category.
+
+### Test Steps
+
+1. Enter category name:
+
+   Flowering Plants
+
+2. Execute category search.
+
+3. Observe displayed results.
+
+### Test Data
+
+Flowering Plants
+
+### Expected Result
+
+Application displays:
+
+🌸 Matching Plants Found 🌸
+
+🌸 Rose
+
+🌸 Jasmine
+
+🌸 Hibiscus
+
+🌸 Marigold
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+
+---
+
+
+## TC-016
+
+### Module
+
+Category Search
+
+### Test Scenario
+
+Verify application supports singular category names.
+
+### Preconditions
+
+Plant database contains plants belonging to the Flowering Plants category.
+
+### Test Steps
+
+1. Enter category name:
+   Flowering Plant
+
+2. Execute category search.
+
+3. Observe displayed results.
+
+### Test Data
+
+Flowering Plant
+
+### Expected Result
+
+Application treats:
+
+Flowering Plant
+
+and
+
+Flowering Plants
+
+as equivalent categories.
+
+Application displays:
+
+🌸 Matching Plants Found 🌸
+
+🌸 Rose
+🌸 Jasmine
+🌸 Hibiscus
+🌸 Marigold
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+
+---
+
+## TC-017
+
+### Module
+
+Category Search
+
+### Test Scenario
+
+Verify application supports case-insensitive category search.
+
+### Preconditions
+
+Plant database contains plants belonging to the Flowering Plants category.
+
+### Test Steps
+
+1. Enter category name:
+
+   flowering plants
+
+2. Execute category search.
+
+3. Observe displayed results.
+
+### Test Data
+
+flowering plants
+
+### Expected Result
+
+Application treats:
+
+flowering plants
+
+and
+
+Flowering Plants
+
+as equivalent categories.
+
+Application displays:
+
+🌸 Matching Plants Found 🌸
+
+🌸 Rose
+
+🌸 Jasmine
+
+🌸 Hibiscus
+
+🌸 Marigold
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
+
+---
+
+
+## TC-018
+
+### Module
+
+Search Features
+
+### Test Scenario
+
+Verify search functions use the correct input variables.
+
+### Preconditions
+
+Application contains separate input variables for:
+
+* Search By Name
+* Search By Category
+* Search By Sunlight
+
+### Test Steps
+
+1. Set:
+
+   plantNameInput = "rose"
+
+2. Execute Search By Name.
+
+3. Set:
+
+   categoryInput = "Flowering Plants"
+
+4. Execute Search By Category.
+
+5. Set:
+
+   sunlightInput = "Direct Sun"
+
+6. Execute Search By Sunlight.
+
+### Expected Result
+
+Each search function should use its corresponding input variable and return correct results.
+
+### Actual Result
+
+Not Executed
+
+### Status
+
+NOT EXECUTED
+
