@@ -558,7 +558,9 @@ function checkAuth() {
 
 /* ── DOM Ready ── */
 document.addEventListener('DOMContentLoaded', () => {
-  if (!checkAuth()) return;
-  initDashboard();
-  setupEventListeners();
+  if (window.location.pathname.includes('dashboard.html')) {
+    if (!checkAuth()) return;
+    initDashboard();
+    setupEventListeners();
+  }
 });
