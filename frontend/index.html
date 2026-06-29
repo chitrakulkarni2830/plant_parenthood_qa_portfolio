@@ -122,11 +122,20 @@
     Start My Plant Journey →
   </a>
   <div class="land-meta">
-    <span>🌱 15 Plants</span>
+    <span>🌱 <span id="landingCount">15</span> Plants</span>
     <span>🌸 6 Categories</span>
     <span>☀️ 3 Light Types</span>
   </div>
 </div>
 
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const countEl = document.getElementById('landingCount');
+    if (countEl && typeof plantDatabase !== 'undefined') {
+      countEl.textContent = plantDatabase.length;
+    }
+  });
+</script>
 </body>
 </html>
