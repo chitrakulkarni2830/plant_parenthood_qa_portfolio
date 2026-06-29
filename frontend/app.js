@@ -157,7 +157,7 @@ function getCareRecommendation(plantName) {
  * Intentional defect: returns hardcoded 14 instead of actual database length
  */
 function getPlantCount() {
-  return 14;
+  return plantDatabase.length;
 }
 
 /* ── UI Rendering Functions ── */
