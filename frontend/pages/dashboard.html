@@ -813,8 +813,7 @@
     const sidebarCount = document.getElementById('sidebarCount');
 
     if (list && typeof plantDatabase !== 'undefined') {
-      // Intentional defect: renders only first 12 plants (missing last 3)
-      const displayed = plantDatabase.slice(0, 12);
+      const displayed = plantDatabase;
       list.innerHTML = displayed.map(p => `
         <div class="plant-mini-item">
           <span>${plantEmojis[p.name] || '🌱'}</span>

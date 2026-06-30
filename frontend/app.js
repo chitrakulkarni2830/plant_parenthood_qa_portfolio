@@ -38,7 +38,7 @@ const plantEmojis = {
   "Marigold":     "🌼",
   "Curry Leaves": "🍃",
   "Chili":        "🌶️",
-  "Jade Plant":   "🪨",
+  "Jade Plant":   "🪴",
   "Lucky Bamboo": "🎋"
 };
 
@@ -179,9 +179,11 @@ function renderPlantCard(plant) {
 }
 
 function getSunlightBadge(sunlight) {
-  if (sunlight === 'Direct Sun')    return 'sage';
-  if (sunlight === 'Indirect Light') return 'lavender';
-  return 'beige';
+  if (!sunlight) return 'beige';
+  const clean = sunlight.trim().toLowerCase();
+  if (clean === 'direct sun') return 'beige';
+  if (clean === 'indirect light') return 'lavender';
+  return 'sage'; // for Low Light
 }
 
 function renderEmptyState(msg) {
@@ -232,10 +234,15 @@ function initDashboard() {
     welcomeEl.textContent = greeting + ', ' + user + '! 🌿';
   }
 
-  // Avatar initials — intentional: takes only first char, not first letter of each word
+  // Avatar initials — updated to get initials for each name part of multi-word names
   const avatarEl = document.getElementById('navAvatar');
   if (avatarEl) {
-    avatarEl.textContent = user ? user[0].toUpperCase() : '🌿';
+    if (user) {
+      const initials = user.trim().split(/\s+/).map(p => p[0].toUpperCase()).join('');
+      avatarEl.textContent = initials || '🌿';
+    } else {
+      avatarEl.textContent = '🌿';
+    }
   }
 
   const navUserEl = document.getElementById('navUsername');
