@@ -580,6 +580,9 @@
 
 <script src="../app.js"></script>
 <script>
+  // Clear cached user info when switching login methods (PP-19)
+  sessionStorage.removeItem('plantUser');
+
   // Set dynamic plant count
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof plantDatabase !== 'undefined') {

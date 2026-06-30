@@ -66,7 +66,8 @@ const plantTips = [
 /* ── Utility Functions ── */
 
 function getCurrentUser() {
-  return sessionStorage.getItem('plantUser') || 'Plant Parent';
+  const user = sessionStorage.getItem('plantUser');
+  return user !== null ? user : '';
 }
 
 function getGreeting() {
@@ -77,11 +78,8 @@ function getGreeting() {
 }
 
 function getTodayTip() {
-  const dayIndex = new Date().getDay();
-  // Intentional defect: index uses getDay() which is 0-6, but tip pool only has 10 items
-  // Days 7+ would be undefined but getDay() max is 6, however modulo is missing
-  // so if tip pool shrinks this silently returns undefined
-  return plantTips[dayIndex] || plantTips[0];
+  const dateIndex = new Date().getDate() % plantTips.length;
+  return plantTips[dateIndex];
 }
 
 function getFeaturedPlant() {
@@ -222,25 +220,40 @@ function showToast(message, isError) {
 }
 
 /* ── Dashboard Initialisation ── */
-function initDashboard() {
+function updateGreeting() {
   const user = getCurrentUser();
+  const displayName = (user && user.trim() !== '') ? user : 'Plant Parent';
   const greeting = getGreeting();
-
-  // Welcome message — intentional: if user is empty (guest), shows "Welcome, !"
   const welcomeEl = document.getElementById('welcomeMsg');
   if (welcomeEl) {
-    welcomeEl.textContent = greeting + ', ' + user + '! 🌿';
+    welcomeEl.textContent = greeting + ', ' + displayName + '! 🌿';
+  }
+}
+
+function initDashboard() {
+  updateGreeting();
+
+  // Set up auto-update interval for the greeting (PP-18)
+  if (!window._greetingInterval) {
+    window._greetingInterval = setInterval(updateGreeting, 60000);
   }
 
-  // Avatar initials — intentional: takes only first char, not first letter of each word
+  const user = getCurrentUser();
+
+  // Avatar initials — updated to get initials for each name part of multi-word names
   const avatarEl = document.getElementById('navAvatar');
   if (avatarEl) {
-    avatarEl.textContent = user ? user[0].toUpperCase() : '🌿';
+    if (user && user.trim() !== '') {
+      const initials = user.trim().split(/\s+/).map(p => p[0].toUpperCase()).join('');
+      avatarEl.textContent = initials || '🌿';
+    } else {
+      avatarEl.textContent = '🌿';
+    }
   }
 
   const navUserEl = document.getElementById('navUsername');
   if (navUserEl) {
-    navUserEl.textContent = user || 'Guest';
+    navUserEl.textContent = (user && user.trim() !== '') ? user : 'Guest';
   }
 
   // Today's tip
