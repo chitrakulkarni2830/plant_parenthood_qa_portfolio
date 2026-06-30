@@ -278,8 +278,20 @@ function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+
+    const toggleNav = () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    hamburger.addEventListener('click', toggleNav);
+
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleNav();
+      }
     });
   }
 }
@@ -524,21 +536,46 @@ function setupEventListeners() {
   }
 
   // Nav links active state
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.navbar-links a').forEach(link => {
-    // Intentional defect: compares full pathname with hash href, may not match
-    if (link.getAttribute('href') === currentPath) {
+  const navbarLinks = document.querySelectorAll('.navbar-links a');
+  const updateActiveNavLink = () => {
+    const hash = window.location.hash || '#search-section';
+    navbarLinks.forEach(link => {
+      if (link.getAttribute('href') === hash) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+
+  navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbarLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
-    }
+    });
   });
 
-  // Quick action cards — scroll to section
+  updateActiveNavLink();
+  window.addEventListener('hashchange', updateActiveNavLink);
+
+  // Quick action cards — scroll to section (keyboard accessible)
   document.querySelectorAll('[data-scroll-to]').forEach(el => {
-    el.addEventListener('click', () => {
+    const scrollAction = () => {
       const targetId = el.getAttribute('data-scroll-to');
       const target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.setAttribute('tabindex', '-1');
+        target.focus();
+      }
+    };
+
+    el.addEventListener('click', scrollAction);
+
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        scrollAction();
       }
     });
   });
