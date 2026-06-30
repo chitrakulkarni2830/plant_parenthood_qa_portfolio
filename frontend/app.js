@@ -157,7 +157,7 @@ function getCareRecommendation(plantName) {
  * Intentional defect: returns hardcoded 14 instead of actual database length
  */
 function getPlantCount() {
-  return 14;
+  return plantDatabase.length;
 }
 
 /* ── UI Rendering Functions ── */
@@ -558,7 +558,9 @@ function checkAuth() {
 
 /* ── DOM Ready ── */
 document.addEventListener('DOMContentLoaded', () => {
-  if (!checkAuth()) return;
-  initDashboard();
-  setupEventListeners();
+  if (window.location.pathname.includes('dashboard.html')) {
+    if (!checkAuth()) return;
+    initDashboard();
+    setupEventListeners();
+  }
 });

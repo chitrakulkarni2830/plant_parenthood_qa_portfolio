@@ -487,7 +487,7 @@
         <span class="pill">🔍 Smart Plant Search</span>
         <span class="pill">☀️ Sunlight Guides</span>
         <span class="pill">💚 Care Tips</span>
-        <span class="pill">🌸 15 Plants & Growing</span>
+        <span class="pill">🌸 <span id="pillCount">15</span> Plants & Growing</span>
       </div>
     </div>
   </div>
@@ -550,7 +550,7 @@
       <!-- Stats -->
       <div class="stats-strip">
         <div class="stat-item">
-          <div class="stat-num">15</div>
+          <div class="stat-num" id="statCount">15</div>
           <div class="stat-lbl">Plants</div>
         </div>
         <div class="stat-item">
@@ -578,7 +578,18 @@
 
 </div>
 
+<script src="../app.js"></script>
 <script>
+  // Set dynamic plant count
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof plantDatabase !== 'undefined') {
+      const statCount = document.getElementById('statCount');
+      const pillCount = document.getElementById('pillCount');
+      if (statCount) statCount.textContent = plantDatabase.length;
+      if (pillCount) pillCount.textContent = plantDatabase.length;
+    }
+  });
+
   const form       = document.getElementById('loginForm');
   const nameInput  = document.getElementById('userName');
   const nameError  = document.getElementById('nameError');
